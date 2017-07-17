@@ -1,0 +1,52 @@
+
+(gimp:26863): GLib-GObject-WARNING **: g_object_set_valist: object class 'GeglConfig' has no property named 'cache-size'
+
+(gimp:26863): GEGL-gegl-operation.c-WARNING **: Cannot change name of operation class 0x1394700 from "gimp:point-layer-mode" to "gimp:dissolve-mode"
+
+(gimp:26863): GEGL-gegl-operation.c-WARNING **: Cannot change name of operation class 0x1394BD0 from "gimp:point-layer-mode" to "gimp:behind-mode"
+
+(gimp:26863): GEGL-gegl-operation.c-WARNING **: Cannot change name of operation class 0x1395240 from "gimp:point-layer-mode" to "gimp:multiply-mode"
+
+(gimp:26863): GEGL-gegl-operation.c-WARNING **: Cannot change name of operation class 0x1395630 from "gimp:point-layer-mode" to "gimp:screen-mode"
+
+(gimp:26863): GEGL-gegl-operation.c-WARNING **: Cannot change name of operation class 0x1395A00 from "gimp:point-layer-mode" to "gimp:overlay-mode"
+
+(gimp:26863): GEGL-gegl-operation.c-WARNING **: Cannot change name of operation class 0x1395E30 from "gimp:point-layer-mode" to "gimp:difference-mode"
+
+(gimp:26863): GEGL-gegl-operation.c-WARNING **: Cannot change name of operation class 0x13961F0 from "gimp:point-layer-mode" to "gimp:addition-mode"
+
+(gimp:26863): GEGL-gegl-operation.c-WARNING **: Cannot change name of operation class 0x1396630 from "gimp:point-layer-mode" to "gimp:subtract-mode"
+
+(gimp:26863): GEGL-gegl-operation.c-WARNING **: Cannot change name of operation class 0x1396A20 from "gimp:point-layer-mode" to "gimp:darken-only-mode"
+
+(gimp:26863): GEGL-gegl-operation.c-WARNING **: Cannot change name of operation class 0x1396E70 from "gimp:point-layer-mode" to "gimp:lighten-only-mode"
+
+(gimp:26863): GEGL-gegl-operation.c-WARNING **: Cannot change name of operation class 0x13972B0 from "gimp:point-layer-mode" to "gimp:hue-mode"
+
+(gimp:26863): GEGL-gegl-operation.c-WARNING **: Cannot change name of operation class 0x1397570 from "gimp:point-layer-mode" to "gimp:saturation-mode"
+
+(gimp:26863): GEGL-gegl-operation.c-WARNING **: Cannot change name of operation class 0x1398240 from "gimp:point-layer-mode" to "gimp:color-mode"
+
+(gimp:26863): GEGL-gegl-operation.c-WARNING **: Cannot change name of operation class 0x1398630 from "gimp:point-layer-mode" to "gimp:value-mode"
+
+(gimp:26863): GEGL-gegl-operation.c-WARNING **: Cannot change name of operation class 0x1398A20 from "gimp:point-layer-mode" to "gimp:divide-mode"
+
+(gimp:26863): GEGL-gegl-operation.c-WARNING **: Cannot change name of operation class 0x1398EA0 from "gimp:point-layer-mode" to "gimp:dodge-mode"
+
+(gimp:26863): GEGL-gegl-operation.c-WARNING **: Cannot change name of operation class 0x1399290 from "gimp:point-layer-mode" to "gimp:burn-mode"
+
+(gimp:26863): GEGL-gegl-operation.c-WARNING **: Cannot change name of operation class 0x13996C0 from "gimp:point-layer-mode" to "gimp:hardlight-mode"
+
+(gimp:26863): GEGL-gegl-operation.c-WARNING **: Cannot change name of operation class 0x1399A80 from "gimp:point-layer-mode" to "gimp:softlight-mode"
+
+(gimp:26863): GEGL-gegl-operation.c-WARNING **: Cannot change name of operation class 0x1399EC0 from "gimp:point-layer-mode" to "gimp:grain-extract-mode"
+
+(gimp:26863): GEGL-gegl-operation.c-WARNING **: Cannot change name of operation class 0x139A280 from "gimp:point-layer-mode" to "gimp:grain-merge-mode"
+
+(gimp:26863): GEGL-gegl-operation.c-WARNING **: Cannot change name of operation class 0x139A6D0 from "gimp:point-layer-mode" to "gimp:color-erase-mode"
+
+(gimp:26863): GEGL-gegl-operation.c-WARNING **: Cannot change name of operation class 0x139AA70 from "gimp:point-layer-mode" to "gimp:erase-mode"
+
+(gimp:26863): GEGL-gegl-operation.c-WARNING **: Cannot change name of operation class 0x139AED0 from "gimp:point-layer-mode" to "gimp:replace-mode"
+
+(gimp:26863): GEGL-gegl-operation.c-WARNING **: Cannot change name of operation class 0x139B270 from "gimp:point-layer-mode" to "gimp:anti-erase-mode"

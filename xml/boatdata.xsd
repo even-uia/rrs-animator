@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+           targetNamespace="boattypelist" xmlns="boattypelist">
+
+  <xs:element name="boatdata" type="BoatTypeList" />
+
+  <xs:complexType name="BoatTypeList">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded" >
+        <xs:element name="hull" type="Hull" />
+        <xs:element name="rig" type="Rig" />
+        <xs:element name="polar" type="Polar" />
+        <xs:element name="boattype" type="BoatType" />
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="BoatType">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="hull" type="Hull"/>
+        <xs:element name="hullref" type="HullRef"/>
+      </xs:choice>
+      <xs:choice>
+        <xs:element name="rig" type="Rig"/>
+        <xs:element name="rigref" type="RigRef"/>
+      </xs:choice>
+      <xs:choice>
+        <xs:element name="polar" type="Polar"/>
+        <xs:element name="polarref" type="PolarRef"/>
+      </xs:choice>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:ID"/>
+  </xs:complexType>
+
+  <!-- Hull Definition -->
+  <xs:complexType name="HullRef">
+    <xs:attribute name="id" type="xs:IDREF"/>
+  </xs:complexType>
+
+  <xs:complexType name="Hull">
+    <xs:sequence>
+      <xs:element type="Point" name="start"/>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element type="LineTo" name="line"/>
+        <xs:element type="Spline2" name="spline2"/>
+        <xs:element type="Spline3" name="spline3"/>
+      </xs:choice>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:ID"/>
+    <xs:attribute name="length" type="xs:decimal"/>
+    <xs:attribute name="beam" type="xs:decimal"/>
+  </xs:complexType>
+
+  <xs:complexType name="Point">
+    <xs:attributeGroup ref="point"/>
+  </xs:complexType>
+
+  <xs:complexType name="LineTo">
+    <xs:attributeGroup ref="point"/>
+  </xs:complexType>
+  <xs:complexType name="Spline2">
+    <xs:attributeGroup ref="spline2"/>
+  </xs:complexType>
+  <xs:complexType name="Spline3">
+    <xs:attributeGroup ref="spline3"/>
+  </xs:complexType>
+
+  <xs:attributeGroup name="point">
+    <xs:attribute name="x" type="xs:decimal" use="required"/>
+    <xs:attribute name="y" type="xs:decimal" use="required"/>
+  </xs:attributeGroup>
+
+  <xs:attributeGroup name="spline2">
+    <xs:attributeGroup ref="point"/>
+    <xs:attribute name="cx1" type="xs:decimal" use="required"/>
+    <xs:attribute name="cy1" type="xs:decimal" use="required"/>
+  </xs:attributeGroup>
+
+  <xs:attributeGroup name="spline3">
+    <xs:attributeGroup ref="spline2"/>
+    <xs:attribute name="cx2" type="xs:decimal" use="required"/>
+    <xs:attribute name="cy2" type="xs:decimal" use="required"/>
+  </xs:attributeGroup>
+
+  <!-- Rig Definition -->
+  <xs:complexType name="RigRef">
+    <xs:attribute name="id" type="xs:IDREF"/>
+  </xs:complexType>
+
+  <xs:complexType name="Rig">
+    <xs:sequence>
+      <xs:element name="mast" type="Mast" minOccurs="1" maxOccurs="1" />
+      <xs:element name="sail" type="Sail" minOccurs="1" maxOccurs="3"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:ID"/>
+    <xs:attribute name="mintwa" type="xs:decimal"/>
+    <xs:attribute name="maxtwa" type="xs:decimal"/>
+  </xs:complexType>
+
+  <xs:complexType name="Mast">
+    <xs:attribute name="radius" type="xs:decimal" />
+    <xs:attribute name="y" type="xs:decimal"/>
+  </xs:complexType>
+
+  <xs:complexType name="Sail">
+    <xs:sequence>
+      <xs:element name="spar" type="Spar"
+                  minOccurs="0" maxOccurs="1" />
+    </xs:sequence>
+    <xs:attribute name="type" type="SailType"/>
+    <xs:attribute name="pivoty" type="xs:decimal"/>
+    <xs:attribute name="chord" type="xs:decimal"/>
+    <xs:attribute name="camber" type="xs:decimal"/>
+    <xs:attribute name="minangle" type="xs:decimal"/>
+    <xs:attribute name="maxangle" type="xs:decimal"/>
+  </xs:complexType>
+
+  <xs:simpleType name="SailType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="main"/>
+      <xs:enumeration value="jib"/>
+      <xs:enumeration value="spinnaker"/>
+      <xs:enumeration value="gennaker"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="Spar">
+    <xs:attribute name="type" type="SparType"/>
+    <xs:attribute name="radius" type="xs:decimal"/>
+    <xs:attribute name="length" type="xs:decimal"/>
+  </xs:complexType>
+
+  <xs:simpleType name="SparType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="BOOM"/>
+      <xs:enumeration value="POLE"/>
+      <xs:enumeration value="SPRIT"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- performance -->
+  <xs:complexType name="PerfRef">
+    <xs:attribute name="id" type="xs:IDREF"/>
+  </xs:complexType>
+
+  <xs:complexType name="PolarRef">
+    <xs:attribute name="id" type="xs:IDREF"/>
+  </xs:complexType>
+
+  <xs:complexType name="Polar">
+    <xs:sequence>
+      <xs:element name="datum" type="Datum" minOccurs="3" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:ID"/>
+  </xs:complexType>
+
+
+  <xs:complexType name="Datum">
+    <xs:attribute name="twa" type="Heading"/>
+    <xs:attribute name="optAngle" type="xs:decimal"/>
+    <xs:attribute name="optSpd" type="xs:decimal"/>
+    <xs:attribute name="optA" type="xs:decimal"/>
+    <xs:attribute name="slackAngle" type="xs:decimal"/>
+    <xs:attribute name="slackSpd" type="xs:decimal"/>
+    <xs:attribute name="slackA" type="xs:decimal"/>
+    <xs:attribute name="spinSpd" type="xs:decimal"/>
+  </xs:complexType>
+
+  <xs:simpleType name="Heading">
+    <xs:restriction base="xs:decimal">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="180"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>
